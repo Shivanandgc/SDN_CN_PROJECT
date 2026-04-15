@@ -1,123 +1,117 @@
-# 🔗 Link Failure Detection Project
+# SDN_CN_PROJECT 🚀
 
-## 📌 Overview
-
-This project focuses on detecting link failures in a network using Software Defined Networking (SDN) concepts. It aims to identify broken or failed links efficiently and ensure reliable communication across the network.
+A Software Defined Networking (SDN) project built using **Mininet** and a custom **Ryu Controller** to simulate and manage network traffic dynamically.
 
 ---
 
-## 🎯 Objectives
+## 📌 Project Description
 
-* Detect link failures in real-time
-* Improve network reliability
-* Reduce downtime in communication systems
-* Demonstrate SDN-based network monitoring
+This project demonstrates the concept of SDN by separating the **control plane** from the **data plane**.
+
+It uses:
+
+* **Mininet** for network emulation
+* **Ryu Controller** for controlling network behavior
+* **OpenFlow Protocol** for communication between switches and controller
+
+---
+
+## 🧠 Objective
+
+* Create a virtual network topology
+* Implement a custom SDN controller
+* Dynamically control packet forwarding
+* Understand flow-based networking
 
 ---
 
 ## 🛠️ Technologies Used
 
 * Python
-* Mininet (for network simulation)
-* OpenFlow Protocol
-* SDN Controller (e.g., Ryu / POX)
+* Mininet
+* Ryu Controller
+* Open vSwitch (OVS)
+* Linux / Ubuntu
 
 ---
 
 ## 📂 Project Structure
 
-```
-link_failure_project/
-│── src/              # Source code files
-│── scripts/          # Automation / helper scripts
-│── topology/         # Network topology files
-│── results/          # Output / logs
-│── README.md         # Project documentation
-```
+SDN_CN_PROJECT/
+│── controller.py        # Ryu controller logic
+│── topology.py          # Mininet topology
+│── README.md
 
 ---
 
 ## ⚙️ Installation & Setup
 
-1. Clone the repository:
+### 1. Install Mininet
 
-```
+sudo apt update
+sudo apt install mininet
+
+### 2. Install Ryu
+
+pip install ryu
+
+### 3. Clone Repository
+
 git clone https://github.com/Shivanandgc/SDN_CN_PROJECT.git
-```
-
-2. Navigate to the project directory:
-
-```
 cd SDN_CN_PROJECT
-```
-
-3. Install dependencies:
-
-```
-pip install -r requirements.txt
-```
 
 ---
 
 ## ▶️ How to Run
 
-1. Start Mininet:
+### Step 1: Start Controller
 
-```
-sudo mn
-```
+ryu-manager controller.py
 
-2. Run the controller:
+### Step 2: Run Topology
 
-```
-python controller.py
-```
+sudo python3 topology.py
 
-3. Execute the main script:
+### Step 3: Test Network
 
-```
-python main.py
-```
+pingall
+
+---
+
+## 🔍 How It Works
+
+1. Mininet creates a virtual network
+2. Switches connect to the controller
+3. Unknown packets are sent to controller
+4. Controller installs flow rules
+5. Future packets are forwarded directly
 
 ---
 
 ## 📊 Features
 
-* Real-time link monitoring
-* Failure detection alerts
-* Scalable network design
-* Easy integration with SDN controllers
+* Custom SDN controller
+* Dynamic flow rule installation
+* Packet forwarding using OpenFlow
+* Programmable network behavior
 
 ---
 
-## 📸 Sample Output
+## 🧪 Example Commands
 
-(Add screenshots here if required)
-
----
-
-## 🚀 Future Improvements
-
-* AI-based failure prediction
-* Visualization dashboard
-* Automatic recovery mechanisms
+pingall              # Test connectivity
+iperf h1 h2          # Check bandwidth
+dpctl dump-flows     # View flow rules
 
 ---
 
-## 🤝 Contributing
+## 🚀 Future Enhancements
 
-Contributions are welcome! Feel free to fork this repo and submit a pull request.
-
----
-
-## 📄 License
-
-This project is open-source and available under the MIT License.
+* Load balancing
+* Firewall implementation
+* Traffic monitoring
+* Multi-controller support
 
 ---
 
-## 👨‍💻 Author
-
-**Shivanand G C**
-GitHub: https://github.com/Shivanandgc
 
